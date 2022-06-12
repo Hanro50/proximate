@@ -1,0 +1,48 @@
+{
+  "name": "proximate",
+  "version": "1.0.0",
+  "description": "A simple object based proxy lib for nodejs",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node tests.js",
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "types": "types/index.d.ts",
+  "keywords": [
+    "proxy",
+    "http-proxy",
+    "ws",
+    "websocket",
+    "ws-proxy",
+    "websocket-proxy",
+    "socket",
+    "websockets",
+    "reverse-proxy",
+    "light",
+    "kiss"
+  ],
+  "author": "Hanro50",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "typescript": "^4.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hanro50/proximate/"
+  },
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/hanro50"
+    }
+  ],
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "package.json",
+    "LICENSE"
+  ]
+}
