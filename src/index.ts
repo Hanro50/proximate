@@ -20,6 +20,15 @@ export class base {
     proxy(socket: Duplex | TLSSocket, handler: (host: string) => { prxy: string, port: number }): Promise<() => void> {
         return new Promise(res => {
             socket.once('data', (raw) => {
+                const chunks: string[] = [];
+                socket.on("readable", () => {
+                    let chunk;
+                    // Use a loop to make sure we read all currently available data
+                    while (null !== (chunk = socket.read())) {
+                        chunks.push(String(chunk));
+                    }
+
+                })
                 let data = raw.toString() as string;
                 if (!data.split("\n")[0].includes('HTTP')) {
                     console.log('Data of rejected header->', data)
@@ -58,7 +67,7 @@ export class base {
                     proxy.write(data);
                     proxy.pipe(socket);
                     socket.pipe(proxy);
-
+                    chunks.forEach(e => proxy.write(e));
                 }));
             });
         });
